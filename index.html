@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Banking App</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.5/angular.js"></script>
+  <script src="/main.js"></script>
+</head>
+<body ng-app= "myApp"  ng-controller= "mainCtrl">
+
+    <div class="container">
+          <!-- User input form -->
+        <div class="form-group">
+          <div class="form-control">
+            <input type="Date" class="from-control" name="bday" placeholder="Date" ng-model="expenseracker.date">
+            <input type="text" class="from-control" placeholder="Description" ng-model="expenseracker.des">
+            <input type="number" class="from-control" placeholder="Debits" ng-model="expenseracker.debit">
+            <input type="number" class="from-control" placeholder="credits" ng-model="expenseracker.credit">
+            <button type="button" class="btn btn-primary btn-sm" ng-click= "addBalance()"> Add expenses</button>
+          </div>
+        </div>
+
+    <div>
+      <table class="table">
+        <thead>
+          <tr>
+            <td>Date</td>
+            <td>Description</td>
+            <td>Debits</td>
+            <td>Credits</td>
+          </tr>
+        </thead>
+        <tfoot>
+          <tr>
+            <td></td>
+            <td></td>
+            <td>total input {{total}}</td>
+            <td>Total  Credit</td>
+          </tr>
+        </tfoot>
+        <tbody>
+          <tr ng-repeat = "expense in userinput ">
+            <td>{{expense.date}}</td>
+            <td>{{expense.des}}</td>
+            <td>{{expense.debit}}</td>
+            <td>{{expense.credit}}</td>
+            <td>
+              <button type="button" class="btn btn-danger btn-sm" ng-click= "removeEntry()">
+                <span class="glyphicon glyphicon-remove"></span>
+              </button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+
+
+
+    </div>
+</body >
+</html>
