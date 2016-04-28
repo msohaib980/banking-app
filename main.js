@@ -3,6 +3,7 @@
 var app = angular.module('myApp',[]);
 
 app.controller("mainCtrl", function ($scope,$interval) {
+  $scope.expenseracker = {};
 
  $scope.userinput = [
 
@@ -10,11 +11,12 @@ app.controller("mainCtrl", function ($scope,$interval) {
 
 // adding to tables
   $scope.addBalance = function () {
-    $scope.userinput.push($scope.expenseracker);
-    $scope.expenseracker = {};
-    // var total =$scope.userinput.length
-    // console.log(total);
-    // console.log($scope.userinput[0].debit)
+    if($scope.expenseracker.des && $scope.expenseracker.debit && $scope.expenseracker.date && $scope.expenseracker.credit){
+
+      $scope.userinput.push($scope.expenseracker);
+      $scope.expenseracker = {};
+    }
+
   };
 
   $scope.removeEntry = function (expense) {

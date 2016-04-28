@@ -13,13 +13,19 @@
           <!-- User input form -->
         <div class="form-group">
           <div class="form-control">
-            <input type="Date" class="from-control" name="bday" placeholder="Date" ng-model="expenseracker.date">
+            <input type="Date" class="from-control" name="bday" placeholder="Date" ng-model="expenseracker.date" required>
             <input type="text" class="from-control" placeholder="Description" ng-model="expenseracker.des">
             <input type="number" class="from-control" placeholder="Debits" ng-model="expenseracker.debit">
             <input type="number" class="from-control" placeholder="credits" ng-model="expenseracker.credit">
             <button type="button" class="btn btn-primary btn-sm" ng-click= "addBalance()"> Add expenses</button>
           </div>
         </div>
+
+      <!-- Search bob  -->
+    <div class="form-group">
+        <label for="">Search</label>
+        <input type="text" class="form-control" ng-model="searchFilter">
+    </div>
 
     <div>
       <table class="table">
@@ -35,12 +41,12 @@
           <tr>
             <td></td>
             <td></td>
-            <td>total input {{total}}</td>
+            <td>Total Debit {{total}} </td>
             <td>Total  Credit</td>
           </tr>
         </tfoot>
         <tbody>
-          <tr ng-repeat = "expense in userinput ">
+          <tr ng-repeat = "expense in userinput  | filter:searchFilter">
             <td>{{expense.date}}</td>
             <td>{{expense.des}}</td>
             <td>{{expense.debit}}</td>
